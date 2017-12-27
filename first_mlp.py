@@ -27,3 +27,11 @@ predictions = model.predict(X)
 # round predictions
 rounded = [round(x[0]) for x in predictions]
 print(rounded)
+new_input = numpy.array([[3,88,58,11,54,24.8,267,22],
+                         [6,92,92,0,0,19.9,188,28],
+                         [10,101,76,48,180,32.9,171,63],
+                         [2,122,70,27,0,36.8,0.34,27],
+                         [5,121,72,23,112,26.2,245,30]])
+
+predictions = model.predict(new_input)
+print predictions # [1.0, 1.0, 1.0, 0.0(.36), 1.0]
