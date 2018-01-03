@@ -1,10 +1,10 @@
-# Create your first MLP in Keras
+
 from keras.models import Sequential
 from keras.layers import Dense
 import numpy
 # fix random seed for reproducibility
 numpy.random.seed(7)
-# load pima indians dataset
+# load dataset
 dataset = numpy.loadtxt("pima-indians-diabetes.csv", delimiter=",")
 # split into input (X) and output (Y) variables
 X = dataset[:,0:8]
@@ -12,17 +12,18 @@ Y = dataset[:,8]
 # create model
 model = Sequential()
 model.add(Dense(12, input_dim=8, activation='relu'))
-model.add(Dense(8, activation='relu'))
+model.add(Dense(10, activation='relu'))
+model.add(Dense(10, activation='tanh'))
 model.add(Dense(1, activation='sigmoid'))
 # Compile model
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 # Fit the model
 model.fit(X, Y, epochs=500, batch_size=10)
-# evaluate the model
+# Model Evaluation
 scores = model.evaluate(X, Y)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
-# calculate predictions
+
 predictions = model.predict(X)
 # round predictions
 rounded = [round(x[0]) for x in predictions]
@@ -34,4 +35,5 @@ new_input = numpy.array([[3,88,58,11,54,24.8,267,22],
                          [5,121,72,23,112,26.2,245,30]])
 
 predictions = model.predict(new_input)
-print predictions # [1.0, 1.0, 1.0, 0.0(.36), 1.0]
+print predictions # [1.0, 1.0, 1.0, 0.0(.36), 1.0] {3 layers}
+                # # [1.0, 1.0, 1.0, 0.0(.40), 1.0] {4 layers}
