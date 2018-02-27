@@ -5,7 +5,7 @@ import numpy
 # fix random seed for reproducibility
 numpy.random.seed(7)
 # load dataset
-dataset = numpy.loadtxt("pima-indians-diabetes.csv", delimiter=",")
+dataset = numpy.loadtxt("/home/nafees/PycharmProjects/Test/pima-indians-diabetes.csv", delimiter=",")
 # split into input (X) and output (Y) variables
 X = dataset[:,0:8]
 Y = dataset[:,8]
@@ -36,5 +36,5 @@ new_input = numpy.array([[3,88,58,11,54,24.8,267,22],
                          [5,121,72,23,112,26.2,245,30]])
 
 predictions = model.predict(new_input)
-print predictions # [1.0, 1.0, 1.0, 0.0(.36), 1.0] {3 layers}
+print (predictions) # [1.0, 1.0, 1.0, 0.0(.36), 1.0] {3 layers}
                 # # [1.0, 1.0, 1.0, 0.0(.40), 1.0] {4 layers}
