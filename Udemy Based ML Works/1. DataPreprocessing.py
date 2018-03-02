@@ -11,7 +11,7 @@ from sklearn.preprocessing import (Imputer, LabelEncoder, OneHotEncoder,
                                    StandardScaler)
 
 # Importing the dataset
-dataset = pd.read_csv("/home/nafees/Udemy Based ML Works/DataSet/DataPreprocessing.csv")
+dataset = pd.read_csv("/home/nafees/PycharmProjects/Test/Udemy Based ML Works/DataSet/DataPreprocessing.csv")
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 3].values
 
